@@ -34,24 +34,6 @@ The project also included a thorough comparison of `sklearn.svm.LinearSVC` and `
 ![image](https://github.com/user-attachments/assets/5a4b00f5-a98c-44b4-8c3f-4d8b7e065a37)
 
 
-
-     
-### Results Summary
-
-| Hyperparameter         | Model                  | Test Accuracy | Training Time |
-|------------------------|------------------------|---------------|---------------|
-| Loss: hinge            | LinearSVC              | 98.5%         | 10.2 seconds  |
-| Loss: squared hinge    | LinearSVC              | 99.1%         | 12.5 seconds  |
-| C: low (0.01)          | LogisticRegression     | 97.3%         | 8.3 seconds   |
-| C: medium (1.0)        | LogisticRegression     | 99.3%         | 14.2 seconds  |
-| C: high (10.0)         | LogisticRegression     | 99.1%         | 16.4 seconds  |
-| tol: low (1e-4)        | LinearSVC              | 98.7%         | 14.5 seconds  |
-| tol: medium (1e-3)     | LogisticRegression     | 99.3%         | 14.3 seconds  |
-| Penalty: L1            | LogisticRegression     | 98.9%         | 15.7 seconds  |
-| Penalty: L2            | LogisticRegression     | 99.3%         | 14.1 seconds  |
-
-For a detailed breakdown of these experiments, including additional insights and visual representations of how hyperparameters affected the models, please refer to the [results section](#).
-
 ## Results
 
 - **Accuracy**: 99.3%

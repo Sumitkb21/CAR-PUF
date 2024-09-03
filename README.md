@@ -17,7 +17,7 @@ This project was developed as part of the *Introduction to Machine Learning* cou
 
 ## Results
 
-- **Accuracy**: 99.3%
+- **Accuracy**: 99.1%
 - **Error Rate**: 0.009
 - **Training Time**: 14.287 seconds
 - **Dimensionality**: Reduced feature vector to 528

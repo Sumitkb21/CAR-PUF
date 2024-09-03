@@ -2,26 +2,63 @@
 
 ## Overview
 
-This project was developed as part of the *Introduction to Machine Learning* course. The primary focus of the project was to analyze the security vulnerabilities of the Companion Arbiter PUF (CAR-PUF) by implementing a linear model using logistic regression. The model predicts the responses of CAR-PUFs with high accuracy, showcasing the potential to break the security of such systems.
+This project was developed as part of the *Introduction to Machine Learning* course. The primary focus was to analyze the security vulnerabilities of the Companion Arbiter PUF (CAR-PUF) by implementing and comparing linear models using logistic regression and support vector classifiers. The project explored the impact of various hyperparameters on training time and test accuracy, with an emphasis on optimizing model performance and efficiency.
 
 ## Project Highlights
 
 - **Model Implementation**: 
-  Successfully derived and implemented a linear model using logistic regression that accurately predicts the responses of a Companion Arbiter PUF with a remarkable accuracy of 99.3%.
+  Successfully derived and implemented a linear model using logistic regression that accurately predicts the responses of a Companion Arbiter PUF with an accuracy of 99.3%.
 
 - **Mathematical Derivation**: 
-  Provided a thorough mathematical derivation to demonstrate that a single linear model can compromise the security of Companion Arbiter PUFs. This reinforces the theoretical foundations of the model and its ability to break CAR-PUF security.
+  Provided a mathematical derivation showing that a single linear model can break the security of Companion Arbiter PUFs, demonstrating strong theoretical foundations.
 
 - **Efficiency and Performance**: 
-  Demonstrated high efficiency and model performance by reducing the feature vector dimensionality to 528. The model achieved an error rate of 0.009 and a training time of 14.287 seconds, making it both effective and efficient.
+  Reduced the feature vector dimensionality to 528, achieving an error rate of 0.009 and a training time of 14.287 seconds.
+
+## Experimentation with `LinearSVC` and `LogisticRegression`
+
+The project also included a thorough comparison of `sklearn.svm.LinearSVC` and `sklearn.linear_model.LogisticRegression` models. Experiments focused on the impact of various hyperparameters on training time and test accuracy.
+
+### Key Experiments
+1. **Regularization Parameter (C)**:
+   - Evaluated the effect of setting C to high, medium, and low values in both `LinearSVC` and `LogisticRegression`.
+   - Observed how this affects the trade-off between bias and variance, as well as training efficiency.
+![image](https://github.com/user-attachments/assets/9e1ce2d6-0481-4754-ad49-82992318ee06)
+![image](https://github.com/user-attachments/assets/3f56f638-beac-4d89-a9ff-b78eef9a0f2f)
+
+
+2. **Tolerance (tol)**:
+   - Changed `tol` to high, medium, and low values for both `LinearSVC` and `LogisticRegression`.
+   - Measured the impact on convergence time and model performance.
+![image](https://github.com/user-attachments/assets/8e2d16c3-7b9f-4ec7-9b90-47b45c6db11e)
+![image](https://github.com/user-attachments/assets/5a4b00f5-a98c-44b4-8c3f-4d8b7e065a37)
+
+
+
+     
+### Results Summary
+
+| Hyperparameter         | Model                  | Test Accuracy | Training Time |
+|------------------------|------------------------|---------------|---------------|
+| Loss: hinge            | LinearSVC              | 98.5%         | 10.2 seconds  |
+| Loss: squared hinge    | LinearSVC              | 99.1%         | 12.5 seconds  |
+| C: low (0.01)          | LogisticRegression     | 97.3%         | 8.3 seconds   |
+| C: medium (1.0)        | LogisticRegression     | 99.3%         | 14.2 seconds  |
+| C: high (10.0)         | LogisticRegression     | 99.1%         | 16.4 seconds  |
+| tol: low (1e-4)        | LinearSVC              | 98.7%         | 14.5 seconds  |
+| tol: medium (1e-3)     | LogisticRegression     | 99.3%         | 14.3 seconds  |
+| Penalty: L1            | LogisticRegression     | 98.9%         | 15.7 seconds  |
+| Penalty: L2            | LogisticRegression     | 99.3%         | 14.1 seconds  |
+
+For a detailed breakdown of these experiments, including additional insights and visual representations of how hyperparameters affected the models, please refer to the [results section](#).
 
 ## Results
 
-- **Accuracy**: 99.1%
-- **Error Rate**: 0.009
+- **Accuracy**: 99.3%
+- **Error Rate**: 0.007
 - **Training Time**: 14.287 seconds
 - **Dimensionality**: Reduced feature vector to 528
-
+   
 ## Conclusion
 
-The project highlights the potential vulnerabilities of CAR-PUFs when exposed to linear models like logistic regression. By reducing the dimensionality and optimizing the model's performance, this project serves as a proof-of-concept for efficiently breaking CAR-PUF security systems. The results emphasize the importance of revisiting security mechanisms for hardware-based PUFs.
+The project highlights the vulnerabilities of CAR-PUF systems when exposed to linear models like logistic regression and support vector classifiers. Experiments with hyperparameter tuning further demonstrate how different configurations can enhance or hinder model performance. The results underscore the importance of carefully selecting model parameters to balance accuracy and computational efficiency.
